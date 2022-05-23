@@ -244,7 +244,6 @@ class ASTModel(nn.Module):
         return torch.tensor(mask_id)
 
     def finetuningavgtok(self, x):
-        print("in finetuning avg token")
         B = x.shape[0]
         x = self.v.patch_embed(x)
         if self.cls_token_num == 2:
@@ -267,7 +266,6 @@ class ASTModel(nn.Module):
         return x
 
     def finetuningcls(self, x):
-        print("in cls token")
         B = x.shape[0]
         x = self.v.patch_embed(x)
         if self.cls_token_num == 2:
@@ -445,7 +443,6 @@ class ASTModel(nn.Module):
         
         
         if task == 'ft_avgtok':
-            print("in forward function")
             return self.finetuningavgtok(x)
         # alternatively, use the [cls] token output as clip-level representation.
         elif task == 'ft_cls':

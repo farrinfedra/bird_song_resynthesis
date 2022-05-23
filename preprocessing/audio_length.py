@@ -22,6 +22,7 @@ for bird in sorted(os.listdir(base_path)):
     
     audios = os.listdir(base_path + bird)
     if(len(audios) == 0 ):
+        os.system('rm {folder}'.format(folder = bird))
         continue
         
     freq.append(len(audios))
@@ -68,5 +69,5 @@ audio_dict['length'] = lengths
 df = pd.DataFrame(audio_dict)
 df2 = pd.DataFrame(bird_freq)
 
-df2.to_csv('./audio_data_freq.csv' , index = False)
-df.to_csv('./audio_meta.csv', index = False)
+df2.to_csv('./proj_data_freq.csv' , index = False)
+df.to_csv('./proj_meta.csv', index = False)
